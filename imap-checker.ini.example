@@ -1,0 +1,7 @@
+[MailRu]
+imap_host=imap.mail.ru
+imap_port=993
+username=@mail.ru
+token=
+action_url=https://touch.mail.ru/messages/#threads/f0
+history_url=https://e.mail.ru/settings/actions
