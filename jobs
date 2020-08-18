@@ -1,0 +1,12 @@
+#!/data/data/com.termux/files/usr/bin/bash
+
+cd /data/data/com.termux/files/home/.termux/
+
+function log {
+    LOGFILE="logs/$(date '+%Y-%m-%d').log"
+    echo $1 >> $LOGFILE
+}
+
+log "$(date '+%H:%M:%S') imap checker start"
+python3 imap-checker.py
+log "$(date '+%H:%M:%S') imap checker end"

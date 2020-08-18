@@ -1,0 +1,6 @@
+#!/data/data/com.termux/files/usr/bin/sh
+
+termux-job-scheduler --job-id 1 \
+    --period-ms 900000 \
+    --persisted true \
+    --script "/data/data/com.termux/files/home/.termux/jobs"
