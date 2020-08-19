@@ -18,14 +18,16 @@ with IMAP4_SSL(host=imap_host, port=imap_port) as M:
     mail_ids_splitted= mail_ids[0].decode().split(" ")
     if mail_ids_splitted[0] == '':
         unread_count = 0
-        os.system("termux-notification-remove mail_ru_checker")
+        os.system("termux-notification-remove imap-checker")
     else:
         unread_count = len(mail_ids_splitted)
         os.system("termux-notification -i imap-checker \
         -t 'mail.ru' \
         -c 'unread messages: {}' \
-        --action 'termux-open-url {}' \
+        --action 'termux-open-url {}; \
+          termux-notification-remove imap-checker' \
         --button1 'history' \
-        --button1-action 'termux-open-url {}' \
+        --button1-action 'termux-open-url {}; \
+          termux-notification-remove imap-checker' \
         --led-color 0000FF".format(unread_count, action_url, history_url))
 
