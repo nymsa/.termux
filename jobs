@@ -10,3 +10,5 @@ function log {
 log "$(date '+%H:%M:%S') imap checker start"
 python3 imap-checker.py
 log "$(date '+%H:%M:%S') imap checker end"
+# delete files modified yesterday
+find ./logs -name "*.log" -type f -daystart -mtime +0 -exec rm -f {} \;
